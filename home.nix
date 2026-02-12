@@ -17,7 +17,11 @@
     lua-language-server
     nil # Nix LSP
     pyright # Python
+    vscode-langservers-extracted
     nodePackages.typescript-language-server
+    clang-tools
+    tailwindcss-language-server
+    jdt-language-server
   ];
 
   # This tells Home Manager to manage itself
