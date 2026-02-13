@@ -66,6 +66,15 @@
     ];
   };
 
+  # Enable sound with pipewire.
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true; # <--- Add/Change this here
+    pulse.enable = true;
+  };
+
   # SSH: Starts the ssh-agent for key management.
   programs.ssh.startAgent = true;
   services.gnome.gcr-ssh-agent.enable = false;
