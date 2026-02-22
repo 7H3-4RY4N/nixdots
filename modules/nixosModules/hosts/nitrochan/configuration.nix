@@ -10,6 +10,9 @@
     # 2. Features (Compositor and Login)
     ../../features/niri.nix
     ../../features/greeter.nix
+
+    # 3. Gaming (NVIDIA)
+    # ../../features/gaming.nix
   ];
 
   # --- HOST IDENTITY ---
@@ -19,6 +22,7 @@
   # --- BOOT & KERNEL ---
   # systemd-boot: Modern UEFI bootloader.
   # kernelParams: Fixes for your specific backlight and ACPI issues.
+  boot.initrd.systemd.enable = true;
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelModules = ["i2c-dev" "i2c-piix4"];
@@ -29,11 +33,13 @@
   ];
 
   # --- HARDWARE SERVICES ---
+  systemd.services.NetworkManager-wait-online.enable = false;
   networking.networkmanager.enable = true;
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
   hardware.i2c.enable = true;
   services.gvfs.enable = true; # Needed for mounting drives/phones in Thunar
+  services.tumbler.enable = true;
 
   # --- SYSTEM PACKAGES ---
   # These are available to all users. 
@@ -90,6 +96,11 @@
     allowedTCPPorts = [ 53317 ];
     allowedUDPPorts = [ 53317 ];
   };
+
+  environment.pathsToLink = [ 
+    "/share/xdg-desktop-portal" 
+    "/share/applications" 
+  ];
 
   # --- HOME MANAGER ---
   # This links your human user 'aryan' to the home.nix config.

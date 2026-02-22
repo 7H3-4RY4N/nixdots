@@ -21,6 +21,9 @@
     unzip
     gcc
     gnumake
+    loupe
+    unrar
+    p7zip
 
     # Terminal Tools
     kitty
@@ -44,6 +47,7 @@
     fuzzel
     swww
     hyprpolkitagent
+    swaybg
 
     # Themes
     adwaita-icon-theme
@@ -64,4 +68,7 @@
   stylix.enableReleaseChecks = false;
   # This tells Home Manager to manage itself
   programs.home-manager.enable = true;
+
+
+
 }
