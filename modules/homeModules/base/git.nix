@@ -7,7 +7,7 @@
     settings = {
       user = {
         name = "Aryan";
-        email = "146753457+7H3-4RY4N@users.noreply.github.com"; 
+        email = "146753457+aryanvedd@users.noreply.github.com"; 
       };
       init.defaultBranch = "main";
       push.autoSetupRemote = true;
